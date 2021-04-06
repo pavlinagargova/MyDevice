@@ -11,8 +11,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src &apos;self&apos; data: gap: https://ssl.gstatic.com &apos;unsafe-eval&apos;; style-src &apos;self&apos; &apos;unsafe-inline&apos;; media-src *; img-src &apos;self&apos; data: content:;">
-        <meta name="format-detection" content="telephone=no">
+		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; img-src 'self' data:; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+		<meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
@@ -46,7 +46,7 @@
 			</div>
 
 			<div class="ui-content">
-				<ul data-role="listView" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+				<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
 					<li>Cordova version:
 						<span id="cordovaVersion">Version</span>
 					</li>
@@ -67,6 +67,18 @@
 					</li>
 					<li>Connection type:
 						<span id="connectionType"></span>
+					</li>
+					<li>Is Plugged:
+						<span id="isPlugged"></span>
+					</li>
+					<li>Universally Unique Identifier:
+						<span id="uuid"></span>
+					</li>
+					<li>Device hardware serial number:
+						<span id="serial"></span>
+					</li>
+					<li>Operating system:
+						<span id="operatingSystem"></span>
 					</li>
 				</ul>
 			</div><!-- end page 1 content -->
