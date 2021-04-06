@@ -7,6 +7,8 @@ function onDeviceReady() {
     window.addEventListener("batterystatus", onBatteryStatus, false);
     applyDeviceData();
     checkConnection();
+
+    $("#camera-btn").click(getPicutre);
 }
 
 function applyDeviceData(){
@@ -40,4 +42,18 @@ function checkConnection(){
     states[Connection.NONE]     = 'No network connection';
 
     $("#connectionType").text(states[networkState]);
+}
+function getPicutre() {
+    navigator.camera.getPicture(succeededCameraCallback, failedCameraCallback, {
+        quality: 25,
+        destinationType: Camera.DestinationType.DATA_URL
+    });
+}
+
+function succeededCameraCallback(imageData) {
+    $('#myImage').attr('src', 'data:image/jpeg;base64,' + imageData);
+}
+
+function failedCameraCallback(message) {
+    alert(message);
 }
